@@ -6,10 +6,18 @@ app = Flask(__name__)
 
 
 @app.route('/' ,methods=['GET', 'POST'])
-def hello_world():
+@app.route('/index.html' ,methods=['GET', 'POST'])
+def main():
+    lampa1=1
+    lampa2=1
+    a=""
     '''if request.method == 'POST':
             if request.form['submit_button'] == 'Do Something':
                 a=request.form['szam']'''
-    return render_template('index.html')
+    if request.method == 'POST':
+        a=request.get_data(as_text=True)
+    else: pass
+    print(a.split(","))
+    return render_template('index.html', lampa1_default=lampa1, lampa2_default=lampa2)
 if __name__ == '__main__':
     app.run()

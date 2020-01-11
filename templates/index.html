@@ -45,7 +45,7 @@
                                 <p>
 <form id="riaszto" name="riaszto" method="post">
 <div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt" onChange="this.form.submit()">
+	<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt">
 		<label class="custom-control-label" for="riaszt">Riasztás bekapcsolása</label>
 </div>
 </form>
@@ -60,7 +60,7 @@
                                 <p>
 								<form id="lamp1" name="lamp1" method="post">
 <div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" onChange='submit();'>
+	<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" checked="{{lampa1_default}}">
 		<label class="custom-control-label" for="lampa1">Lámpa felkapcsolása</label>
 </div>
 </form></p>
@@ -74,7 +74,7 @@
                                 <p>
 								<form id="lamp2" name="lamp2" method="post">
 						<div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2">
+	<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2"checked="{{lampa2_default}}">
 		<label class="custom-control-label" for="lampa2">Lámpa felkapcsolása</label>
 </div>
 </form></p>
@@ -87,8 +87,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-<script src="../static/js/jquery-3.4.1.slim.min.js"></script>
+<script src="../static/js/jquery-3.4.1.min.js"></script>
 <script src="../static/js/popper.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/main.js"></script>
   </body>
 </html>
