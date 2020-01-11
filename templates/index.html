@@ -18,32 +18,10 @@
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="">Okosotthon vezérlő</a>
+      <a class="navbar-brand" href="/">Okosotthon vezérlő</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
-      </div>
     </nav>
 
     <main role="main" class="container">
@@ -51,6 +29,58 @@
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+		<div class="row">
+		            <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Fűtés</h5>
+                                <p>123</p>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Riasztás</h5>
+                                <p>
+<form id="riaszto" name="riaszto" method="post">
+<div class="custom-control custom-switch">
+	<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt" onChange="this.form.submit()">
+		<label class="custom-control-label" for="riaszt">Riasztás bekapcsolása</label>
+</div>
+</form>
+</p>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Lámpa1</h5>
+                                <p>
+								<form id="lamp1" name="lamp1" method="post">
+<div class="custom-control custom-switch">
+	<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" onChange='submit();'>
+		<label class="custom-control-label" for="lampa1">Lámpa felkapcsolása</label>
+</div>
+</form></p>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Lámpa2</h5>
+                                <p>
+								<form id="lamp2" name="lamp2" method="post">
+						<div class="custom-control custom-switch">
+	<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2">
+		<label class="custom-control-label" for="lampa2">Lámpa felkapcsolása</label>
+</div>
+</form></p>
+							</div>
+                        </div>
+                    </div>
       </div>
 
     </main><!-- /.container -->
