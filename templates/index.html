@@ -17,38 +17,43 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-ld navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="/">Okosotthon vezérlő</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
       </button>
+	  	  <img  src="../static/{{daytime}}.svg">
     </nav>
 
     <main role="main" class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+ <!-- kozep -->
 		<div class="row">
 		            <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Fűtés</h5>
-                                <p>123</p>
+                               <div class="custom-control custom-switch">
+	<input type="checkbox" class="custom-control-input" id="futauto" name="futauto">
+		<label class="custom-control-label" for="futauto">Automata mód</label>
+		</div>
+		<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="futon" name="futon">
+		<label class="custom-control-label" for="futon">Fűtés bekapcsolása</label>
+				</div>
 							</div>
                         </div>
                     </div>
+					
 					<div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Riasztás</h5>
                                 <p>
-<form id="riaszto" name="riaszto" method="post">
 <div class="custom-control custom-switch">
 	<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt">
 		<label class="custom-control-label" for="riaszt">Riasztás bekapcsolása</label>
 </div>
-</form>
+
 </p>
 							</div>
                         </div>
@@ -58,12 +63,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Lámpa1</h5>
                                 <p>
-								<form id="lamp1" name="lamp1" method="post">
 <div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" checked="{{lampa1_default}}">
+	<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" {{lampa1_default}}>
 		<label class="custom-control-label" for="lampa1">Lámpa felkapcsolása</label>
 </div>
-</form></p>
+</p>
 							</div>
                         </div>
                     </div>
@@ -72,17 +76,17 @@
                             <div class="card-body">
                                 <h5 class="card-title">Lámpa2</h5>
                                 <p>
-								<form id="lamp2" name="lamp2" method="post">
+
 						<div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2"checked="{{lampa2_default}}">
+	<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2" {{lampa2_default}}>
 		<label class="custom-control-label" for="lampa2">Lámpa felkapcsolása</label>
 </div>
-</form></p>
+</p>
 							</div>
                         </div>
                     </div>
-      </div>
 
+      </div>
     </main><!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
