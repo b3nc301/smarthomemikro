@@ -11,6 +11,8 @@ def main():
     lampa1="checked"
     lampa2=""
     daynight=["sun","moon"]
+    homerseklet=30
+    para=55
     a=""
     '''if request.method == 'POST':
             if request.form['submit_button'] == 'Do Something':
@@ -19,6 +21,6 @@ def main():
         a=request.get_data(as_text=True)
     else: pass
     print(a.split(","))
-    return render_template('index.html', lampa1_default=lampa1, lampa2_default=lampa2, daytime=daynight[0])
+    return render_template('index.html', lampa1_default=lampa1, lampa2_default=lampa2, daytime=daynight[0], gauge_temp=homerseklet, gauge_hum=para)
 if __name__ == '__main__':
     app.run(host="0.0.0.0")

@@ -7,10 +7,9 @@
 
     <title>Okosotthon vezérlő rendszer</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
-
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="../static/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../static/css/Chart.min.css" >
     <!-- Custom styles for this template -->
     <link href="../static/starter-template.css" rel="stylesheet">
   </head>
@@ -19,27 +18,28 @@
 
     <nav class="navbar navbar-expand-ld navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="/">Okosotthon vezérlő</a>
-      </button>
 	  	  <img  src="../static/{{daytime}}.svg">
     </nav>
 
     <main role="main" class="container">
 
-      <div class="starter-template">
+    <div class="starter-template">
  <!-- kozep -->
 		<div class="row">
 		            <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Fűtés</h5>
+								
                                <div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="futauto" name="futauto">
-		<label class="custom-control-label" for="futauto">Automata mód</label>
-		</div>
-		<div class="custom-control custom-switch">
-		<input type="checkbox" class="custom-control-input" id="futon" name="futon">
-		<label class="custom-control-label" for="futon">Fűtés bekapcsolása</label>
-				</div>
+									<input type="checkbox" class="custom-control-input" id="futauto" name="futauto">
+									<label class="custom-control-label" for="futauto">Automata mód</label>
+								</div>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="futon" name="futon">
+									<label class="custom-control-label" for="futon">Fűtés bekapcsolása</label>
+								</div>
+								
 							</div>
                         </div>
                     </div>
@@ -49,12 +49,12 @@
                             <div class="card-body">
                                 <h5 class="card-title">Riasztás</h5>
                                 <p>
-<div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt">
-		<label class="custom-control-label" for="riaszt">Riasztás bekapcsolása</label>
-</div>
+									<div class="custom-control custom-switch">
+										<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt">
+										<label class="custom-control-label" for="riaszt">Riasztás bekapcsolása</label>
+									</div>
 
-</p>
+								</p>
 							</div>
                         </div>
                     </div>
@@ -63,11 +63,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Lámpa1</h5>
                                 <p>
-<div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" {{lampa1_default}}>
-		<label class="custom-control-label" for="lampa1">Lámpa felkapcsolása</label>
-</div>
-</p>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="lampa1" name="lampa1" {{lampa1_default}}>
+									<label class="custom-control-label" for="lampa1">Lámpa felkapcsolása</label>
+								</div>
+								</p>
 							</div>
                         </div>
                     </div>
@@ -76,24 +76,103 @@
                             <div class="card-body">
                                 <h5 class="card-title">Lámpa2</h5>
                                 <p>
-
-						<div class="custom-control custom-switch">
-	<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2" {{lampa2_default}}>
-		<label class="custom-control-label" for="lampa2">Lámpa felkapcsolása</label>
-</div>
-</p>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="lampa2" name="lampa2" {{lampa2_default}}>
+									<label class="custom-control-label" for="lampa2">Lámpa felkapcsolása</label>
+								</div>
+								</p>
 							</div>
                         </div>
                     </div>
+		</div>
+					
+	<div class="row">
+		<div class="col">
+			<canvas data-type="radial-gauge"
+        data-width="400"
+        data-height="400"
+        data-units="C°"
+        data-title="false"
+        data-value="{{gauge_temp}}"
+        data-min-value="-20"
+        data-max-value="50"
+        data-major-ticks="-20,-10,0,10,20,30,40,50"
+        data-minor-ticks="2"
+        data-stroke-ticks="true"
+        data-highlights='[
+		    { "from": -20, "to": 0, "color": "rgba(0,0,255,.25)" },
+            { "from": 0, "to": 30, "color": "rgba(0,255,0,.15)" },
+            { "from": 30, "to": 35, "color": "rgba(255,255,0,.15)" },
+            { "from": 35, "to": 50, "color": "rgba(255,30,0,.25)" }
 
-      </div>
+        ]'
+        data-color-plate="#222"
+        data-color-major-ticks="#f5f5f5"
+        data-color-minor-ticks="#ddd"
+        data-color-title="#fff"
+        data-color-units="#ccc"
+        data-color-numbers="#eee"
+        data-color-needle-start="rgba(240, 128, 128, 1)"
+        data-color-needle-end="rgba(255, 160, 122, .9)"
+        data-value-box="false"
+        data-animation-rule="bounce"
+        data-animation-duration="500"
+        data-font-value="Led"
+        data-animated-value="false"
+			></canvas>
+		</div>
+		<div class="col">
+			<canvas data-type="radial-gauge"
+        data-width="400"
+        data-height="400"
+        data-units="%"
+        data-title="false"
+        data-value="{{gauge_hum}}"
+        data-min-value="20"
+        data-max-value="100"
+        data-major-ticks="20,30,40,50,60,70,80,90,100"
+        data-minor-ticks="2"
+        data-stroke-ticks="true"
+        data-highlights='[
+		    { "from": 20, "to": 45, "color": "rgba(0,0,255,.25)" },
+            { "from": 45, "to": 75, "color": "rgba(0,255,0,.15)" },
+            { "from": 75, "to": 100, "color": "rgba(255,30,0,.25)" }
+
+        ]'
+        data-color-plate="#222"
+        data-color-major-ticks="#f5f5f5"
+        data-color-minor-ticks="#ddd"
+        data-color-title="#fff"
+        data-color-units="#ccc"
+        data-color-numbers="#eee"
+        data-color-needle-start="rgba(240, 128, 128, 1)"
+        data-color-needle-end="rgba(255, 160, 122, .9)"
+        data-value-box="false"
+        data-animation-rule="bounce"
+        data-animation-duration="500"
+        data-font-value="Led"
+        data-animated-value="false"
+			></canvas>
+		</div>
+	</div>
+		<canvas id="THChart" width="400" height="400"></canvas>
+    </div>
+
+
     </main><!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <script src="../static/js/jquery-3.4.1.min.js"></script>
-<script src="../static/js/popper.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
 <script src="../static/main.js"></script>
+<script src="../static/js/gauge.min.js"></script>
+<script src="../static/js/Chart.bundle.min.js"></script>
+<script>
+    var THChart = new Chart(ctx, {
+	type: 'line',
+	data: {{chart_data}}
+	});
+</script>
   </body>
 </html>
