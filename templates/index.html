@@ -32,11 +32,11 @@
                                 <h5 class="card-title">Fűtés</h5>
 								
                                <div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="futauto" name="futauto">
+									<input type="checkbox" class="custom-control-input" id="futauto" name="futauto" {{futauto_default}}>
 									<label class="custom-control-label" for="futauto">Automata mód</label>
 								</div>
 								<div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="futon" name="futon">
+									<input type="checkbox" class="custom-control-input" id="futon" name="futon" {{futon_default}}>
 									<label class="custom-control-label" for="futon">Fűtés bekapcsolása</label>
 								</div>
 								
@@ -50,7 +50,7 @@
                                 <h5 class="card-title">Riasztás</h5>
                                 <p>
 									<div class="custom-control custom-switch">
-										<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt">
+										<input type="checkbox" class="custom-control-input" id="riaszt" name="riaszt" {{riaszt_default}}>
 										<label class="custom-control-label" for="riaszt">Riasztás bekapcsolása</label>
 									</div>
 
@@ -170,13 +170,14 @@
 <script src="../static/js/Chart.bundle.min.js"></script>
 <script>
 	var ctx = document.getElementById('THChart').getContext('2d');
+	var d = new Date();
     var THChart = new Chart(ctx, {
 	type: 'line',
     data: {
         labels: ['Hétfő','Kedd','Szerda','Csütörtök','Péntek','Szombat','Vasárnap'],
         datasets: [{
             label: 'C°',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [{{temp_list}}],
             backgroundColor: [
                 'rgba(153, 255, 102, 0.2)',
             ],
@@ -187,7 +188,7 @@
         },
 		{
 		            label: '%',
-            data: [20, 48, 9, 5, 2, 10],
+            data: [{{hum_list}}],
             backgroundColor: [
                 'rgba(54, 162, 235,0.2)',
             ],
