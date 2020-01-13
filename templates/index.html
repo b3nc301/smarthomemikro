@@ -39,7 +39,6 @@
 									<input type="checkbox" class="custom-control-input" id="futon" name="futon" {{futon_default}}>
 									<label class="custom-control-label" for="futon">Fűtés bekapcsolása</label>
 								</div>
-								
 							</div>
                         </div>
                     </div>
@@ -85,7 +84,14 @@
                         </div>
                     </div>
 		</div>
-					
+		<div class="row">
+		<div class="col-md-3">										                                <div class="form-group">
+                                    <label for="temp">Kívánt Hőmérséklet:</label>
+                                    <input type="number" class="form-control" id="temp" value="{{temp_value}}" disabled="true">
+                                </div>
+        </div>
+        </div>
+        </div>
 	<div class="row">
 		<div class="col">
 			<canvas data-type="radial-gauge"
