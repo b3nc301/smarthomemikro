@@ -1,5 +1,11 @@
 from flask import Flask, render_template,request
-import sqlite3
+import mysql.connector as mariadb
+
+mariadb_connection = mariadb.connect(user='raspberry', password='pi', database='Hopara')
+cursor = mariadb_connection.cursor()
+cursor.execute("SELECT idopont,hofok,para FROM hopara")
+for idopont, hofok,para in cursor:
+    print({},{},{})
 
 '''def GetTemp():
     temp=0
