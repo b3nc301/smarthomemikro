@@ -1,6 +1,5 @@
 from flask import Flask, render_template,request
-
-
+import sqlite3
 
 '''def GetTemp():
     temp=0
@@ -20,14 +19,13 @@ def main():
     homerseklet=0
     para=0
     kapcsolok=""
-    templist=
-    humlist=
+    templist=""
+    humlist=""
     if request.method == 'POST':
         kapcsolok=request.get_data(as_text=True)
     else: pass
     kapcsolok=kapcsolok.split(",")
     print(kapcsolok)
     return render_template('index.html', daytime=daynight[0], gauge_temp=homerseklet, gauge_hum=para)
-if __name__ == '__main__':
-    app.run(host="0.0.0.0")
-
+'''if __name__ == '__main__':
+    app.run(host="0.0.0.0")'''
