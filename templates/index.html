@@ -170,11 +170,10 @@
 <script src="../static/js/Chart.bundle.min.js"></script>
 <script>
 	var ctx = document.getElementById('THChart').getContext('2d');
-	var d = new Date();
     var THChart = new Chart(ctx, {
 	type: 'line',
     data: {
-        labels: ['Hétfő','Kedd','Szerda','Csütörtök','Péntek','Szombat','Vasárnap'],
+        labels: [{{d_list|safe}}] ,
         datasets: [{
             label: 'C°',
             data: [{{temp_list}}],
@@ -199,8 +198,8 @@
 		
 		}]
     },
+
 });
-</script>
 </script>
   </body>
 </html>
