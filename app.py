@@ -57,7 +57,6 @@ def meres():
         cursor.execute("INSERT INTO `Hopara`(`Hofok`, `Para`) VALUES (%s,%s)", (temp, hum))
         cursor.execute("DELETE FROM Hopara WHERE IDOPONT<DATE_SUB(LOCALTIME(), INTERVAL 3 HOUR)")
         mariadb_connection.commit()
-        print(temp, hum)
         sleep(10)
 '''Hőszabályozó függvény'''
 def heat():
@@ -68,7 +67,6 @@ def heat():
 def riaszt():
     while(kapdef[2]=="checked"):
         if(GPIO.input(17)==GPIO.HIGH):
-            print("aaaaa")
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender_email, password)
@@ -119,7 +117,6 @@ def main():
             kapdef[i]="checked"
         elif x.isdigit():
             tempset=int(x)
-            print (x)
     '''Lámpa fel és lekapcsolás'''
     if(kapdef[3]=="checked"):
         Lampa1On()
@@ -136,7 +133,6 @@ def main():
     '''riasztó élesítés'''
     if(kapdef[2]=="checked"):
         Thread(target=riaszt).start()
-        print("ab")
     '''Oldal Render'''
     return render_template('index.html', futauto_default=kapdef[0], futon_default=kapdef[1],
                                riaszt_default=kapdef[2], lampa1_default=kapdef[3], lampa2_default=kapdef[4],
