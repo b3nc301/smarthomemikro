@@ -6,11 +6,13 @@ import RPi.GPIO as GPIO
 from time import sleep
 from threading import Thread
 import smtplib, ssl
+
+'''E-mail küldés'''
 port = 465  # For SSL
 password = "jelszo1234"
 smtp_server = "smtp.gmail.com"
 sender_email = "memssmarthome@gmail.com"
-receiver_email = "bence.fieszl@gmail.com"
+receiver_email = ["bence.fieszl@gmail.com","martinnyiz@gmail.com"]
 message = """\
 Subject: RIASZTAS!
 
@@ -125,6 +127,7 @@ def main():
     if(kapdef[4]=="checked"):
         Lampa2On()
     else: Lampa2Off()
+    '''Fűtés kapcsolása'''
     if(kapdef[0]=="checked"):
         Thread(target=heat).start()
     elif(kapdef[1]=="checked"):
