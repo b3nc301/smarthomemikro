@@ -5,6 +5,19 @@ import adafruit_dht
 import RPi.GPIO as GPIO
 from time import sleep
 from threading import Thread
+import smtplib, ssl
+port = 465  # For SSL
+password = "jelszo1234"
+smtp_server = "smtp.gmail.com"
+sender_email = "memssmarthome@gmail.com"
+receiver_email = "bence.fieszl@gmail.com"
+message = """\
+Subject: RIASZTAS!
+
+Figyelem! Aktiv riasztas mellett tevekenyseget eszlelt a rendszer!."""
+
+# Send email here
+
 
 
 kapdef = ["","","","",""]
@@ -15,6 +28,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(18, GPIO.OUT)
 GPIO.setup(23, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.output(18, GPIO.LOW)
 GPIO.output(23, GPIO.LOW)
 GPIO.output(22, GPIO.LOW)
@@ -45,9 +59,20 @@ def meres():
         sleep(10)
 '''Hőszabályozó függvény'''
 def heat():
-    while(temp<tempset):
+    while(temp<tempset and kapdef[0]=="checked"):
         GPIO.output(22, GPIO.HIGH)
     GPIO.output(22, GPIO.LOW)
+'''Riasztó függvény'''
+def riaszt():
+    while(kapdef[2]=="checked"):
+        if(GPIO.input(17)==GPIO.HIGH):
+            print("aaaaa")
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, message)
+            break
+
 '''Mérőszál indítása'''
 Thread(target=meres).start()
 
@@ -105,6 +130,10 @@ def main():
     elif(kapdef[1]=="checked"):
         GPIO.output(22, GPIO.HIGH)
     else:GPIO.output(22, GPIO.LOW)
+    '''riasztó élesítés'''
+    if(kapdef[2]=="checked"):
+        Thread(target=riaszt).start()
+        print("ab")
     '''Oldal Render'''
     return render_template('index.html', futauto_default=kapdef[0], futon_default=kapdef[1],
                                riaszt_default=kapdef[2], lampa1_default=kapdef[3], lampa2_default=kapdef[4],
