@@ -9,10 +9,10 @@ import smtplib, ssl
 
 '''E-mail küldés'''
 port = 465  # For SSL
-password = "jelszo1234"
+password = "'''password'''"
 smtp_server = "smtp.gmail.com"
-sender_email = "memssmarthome@gmail.com"
-receiver_email = ["bence.fieszl@gmail.com","martinnyiz@gmail.com"]
+sender_email = "'''sender mail'''"
+receiver_email = ["'''receiver1'''","'''receiver2'''"]
 message = """\
 Subject: RIASZTAS!
 
