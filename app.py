@@ -8,7 +8,7 @@ from threading import Thread
 import smtplib, ssl
 
 '''E-mail küldés'''
-port = 465  # For SSL
+port = 465
 password = "'''password'''"
 smtp_server = "smtp.gmail.com"
 sender_email = "'''sender mail'''"
@@ -17,9 +17,6 @@ message = """\
 Subject: RIASZTAS!
 
 Figyelem! Aktiv riasztas mellett tevekenyseget eszlelt a rendszer!."""
-
-# Send email here
-
 
 
 kapdef = ["","","","",""]
