@@ -86,8 +86,6 @@ def main():
     '''Változók inicializálása'''
     global tempset
     global kapdef
-    homerseklet=temp
-    para=hum
     datalist=""
     templist=""
     humlist=""
@@ -136,5 +134,5 @@ def main():
     '''Oldal Render'''
     return render_template('index.html', futauto_default=kapdef[0], futon_default=kapdef[1],
                                riaszt_default=kapdef[2], lampa1_default=kapdef[3], lampa2_default=kapdef[4],
-                               temp_value=tempset, gauge_temp=homerseklet, gauge_hum=para, d_list=datalist,
+                               temp_value=tempset, gauge_temp=temp, gauge_hum=hum, d_list=datalist,
                                temp_list=templist, hum_list=humlist)
